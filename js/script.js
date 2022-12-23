@@ -33,52 +33,98 @@ const posts = [
         id: 1,
         name: "Ali",
         surname: "Chouchene",
-        profilePic: "https://unsplash.it/300/300?image=15",
+        profilePic: "https://unsplash.it/300/300?image=7",
         date: "08-07-2021",
         text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto voluptate recusandae architecto nihil ullam aut alias",
-        img: "https://unsplash.it/600/300?image=171",
+        img: "https://unsplash.it/600/300?image=77",
         likes: 83
     },
     {
         id: 2,
         name: "Lionel",
         surname: "Messi",
-        profilePic: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.transfermarkt.it%2Flionel-messi%2Fprofil%2Fspieler%2F28003&psig=AOvVaw0LPgUsYJKhRwp97L1Zel5v&ust=1671886482465000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIiQitLkj_wCFQAAAAAdAAAAABAD",
+        profilePic: "https://unsplash.it/300/300?image=27",
         date: "02-08-2022",
         text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto voluptate recusandae architecto nihil ullam aut alias",
-        img: "https://unsplash.it/600/300?image=171",
+        img: "https://unsplash.it/600/300?image=126",
         likes: 64
     },
     {
         id: 3,
         name: "Marco",
         surname: "Lanci",
-        profilePic: "https://unsplash.it/300/300?image=15",
+        profilePic: "https://unsplash.it/300/300?image=47",
         date: "10-07-2020",
         text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto voluptate recusandae architecto nihil ullam aut alias",
-        img: "https://unsplash.it/600/300?image=171",
+        img: "https://unsplash.it/600/300?image=125",
         likes: 79
     },
     {
         id: 4,
         name: "Cristiano",
         surname: "Ronaldo",
-        profilePic: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gazzetta.it%2Fcalcio%2Fgiocatori%2Fcristiano-ronaldo%2F14937%2F&psig=AOvVaw2L1yJUaf15Vh-gtXpxzJVj&ust=1671886424310000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJC0yr3kj_wCFQAAAAAdAAAAABAI",
+        profilePic: "https://unsplash.it/300/300?image=77",
         date: "12-24-2022",
         text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto voluptate recusandae architecto nihil ullam aut alias",
-        img: "https://unsplash.it/600/300?image=171",
+        img: "https://unsplash.it/600/300?image=289",
         likes: 97
     },
     {
         id: 5,
         name: "Kylian",
         surname: "Mbappé",
-        profilePic: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.si.com%2Fsoccer%2Fliverpool%2Fnonlfc%2Fbreaking-real-madrid-sign-psg-kylian-mbappe&psig=AOvVaw3f7sjOua9dW6Hgjdd9EDmL&ust=1671886634326000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLid0pjlj_wCFQAAAAAdAAAAABAJ",
+        profilePic: "https://unsplash.it/300/300?image=10",
         date: "03-12-2022",
         text: "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto voluptate recusandae architecto nihil ullam aut alias",
-        img: "https://unsplash.it/600/300?image=171",
+        img: "https://unsplash.it/600/300?image=257",
         likes: 60
     },
 ]
+
+//! prendo elementi in pagina
+
+const target = document.getElementById("container");
+
+
+
+let postCode = "";
+
+posts.forEach((post) => {
+
+    postCode += `
+<div class="post">
+   <div class="post__header">
+        <div class="post-meta">
+           <div class="post-meta__icon">
+             <img class="profile-pic" src="${post.profilePic}" alt="Phil Mangione" />
+            </div>
+            <div class="post-meta__data">
+               <div class="post-meta__author">${post.name}  ${post.surname}</div>
+               <div class="post-meta__time">${post.date}</div>
+            </div>
+        </div>
+    </div>
+    <div class="post__text">${post.text}</div>
+    <div class="post__image">
+        <img src="${post.img}" alt="" />
+    </div>
+    <div class="post__footer">
+        <div class="likes js-likes">
+             <div class="likes__cta">
+                 <button class="like-button js-like-button" href="#" data-postid="1">
+                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                     <span class="like-button__label">Mi Piace</span>
+                 </button>
+             </div>
+             <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> "persone"</div>
+         </div>
+    </div>
+</div>
+
+`
+
+
+});
+target.innerHTML = postCode;
 
 
