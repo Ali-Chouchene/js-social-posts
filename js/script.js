@@ -90,7 +90,6 @@ const target = document.getElementById("container");
 let postCode = "";
 
 posts.forEach((post) => {
-
     postCode += `
 <div class="post">
    <div class="post__header">
@@ -111,7 +110,7 @@ posts.forEach((post) => {
     <div class="post__footer">
         <div class="likes js-likes">
              <div class="likes__cta">
-                 <button class="like-button js-like-button" href="#" data-postid="1">
+                 <button id="${post.id}" class="like-button js-like-button" href="#" data-postid="1">
                      <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                      <span class="like-button__label">Mi Piace</span>
                  </button>
@@ -123,8 +122,8 @@ posts.forEach((post) => {
 
 `
 
-
 });
 target.innerHTML = postCode;
+
 
 
