@@ -86,7 +86,9 @@ const posts = [
 const target = document.getElementById("container");
 
 
-
+// posts.forEach((post) => {
+// posts.slice
+// });
 let postCode = "";
 
 posts.forEach((post) => {
@@ -115,7 +117,7 @@ posts.forEach((post) => {
                      <span class="like-button__label">Mi Piace</span>
                  </button>
              </div>
-             <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> "persone"</div>
+             <div class="likes__counter">Piace a <b id="${post.id}" class="js-likes-counter">${post.likes}</b> "persone"</div>
          </div>
     </div>
 </div>
@@ -126,4 +128,16 @@ posts.forEach((post) => {
 target.innerHTML = postCode;
 
 
+const buttons = document.querySelectorAll(".js-like-button");
 
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        button.classList.add("like-button--liked");
+        const postId = button.dataset.postid;
+
+        const counter = document.getElementById(`${postId}`);
+        let likes = parseInt(counter.innerText);
+        const isClicked = button.classList.contains("like-button--liked");
+        counter.innerText = isClicked ? ++likes : --likes;
+    });
+});  
